@@ -20,3 +20,4 @@ const renderGoodsList = (list) => {
     document.querySelector('.goods-list').innerHTML = goodsList.join('');
 };
 
+renderGoodsList(goods);
