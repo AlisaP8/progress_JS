@@ -11,8 +11,8 @@
     <header>
         <div class="logo">Shop</div>
         <div class="cart">
-            <form action="#" class="search-form" @submit.prevent="$parent.filter">
-                <input type="text" class="search-field" v-model="$parent.userSearch">
+            <form action="#" class="search-form" @submit.prevent="filter">
+                <input type="text" class="search-field" v-model="userSearch">
                 <button class="btn-search" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
