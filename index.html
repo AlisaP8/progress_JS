@@ -22,7 +22,7 @@
                 <p v-if="!cartItems.length">No products</p>
                 <div class="cart-item" v-for="item of cartItems">
                     <div class="product-bio">
-                        <img :src="imgCart" alt="Some img">
+                        <img :src="imgCart" alt="photo">
                         <div class="product-desc">
                             <div class="product-title">{{ item.product_name }}</div>
                             <div class="product-quantity">Quantity: {{ item.quantity }}</div>
