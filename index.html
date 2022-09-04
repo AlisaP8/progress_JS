@@ -20,7 +20,7 @@
             <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
             <div class="cart-block" v-show="showCart">
                 <p v-if="!cartItems.length">No products</p>
-                <div class="cart-item" v-for="item of cartItems">
+                <div class="cart-item" v-for="item of cartItems" >
                     <div class="product-bio">
                         <img :src="imgCart" alt="photo">
                         <div class="product-desc">
@@ -39,8 +39,8 @@
     </header>
     <main>
         <div class="products">
-            <div class="product-item" v-for="product of products">
-                <img :src="imgCatalog" alt="photo">
+            <div class="product-item" v-for="product of filtered">
+                <img :src="imgProduct" alt="photo">
                 <div class="desc">
                     <h3>{{product.product_name}}</h3>
                     <p>{{product.price}} $</p>
