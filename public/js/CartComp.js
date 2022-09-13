@@ -60,10 +60,10 @@ export const Cart = {
             <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
                 <div class='cart-block' v-show='showCart'>
                     <p v-if="!cartItems.length">No products</p>
-                    <CartItem v-for='el of cartItems' 
-                        :cart-item='el'
+                    <CartItem 
+                        v-for='el of cartItems' 
+                        :cartItem='el'
                         :img="imgCart"
-                        
                         @remove="remove"
                     ></CartItem>
                 </div>`,

@@ -3,7 +3,7 @@ export const CartItem =  {
     emits: ['remove'],
     template:  `<div class='cart-item'>
                     <div class="product-bio">
-                        <img :src="img" alt="cartItem.product_name">
+                        <img :src="img" alt="photo">
                         <div class="product-desc">
                             <div class="product-title">{{ cartItem.product_name }}</div>
                             <div class="product-quantity">Quantity: {{ cartItem.quantity }}</div>
