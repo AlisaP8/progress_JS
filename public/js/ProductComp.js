@@ -27,10 +27,10 @@ export const Products = {
     },
     template: `<div class='products'>
                     <ProductItem
-                        // v-for='el of products' 
+                       
                         v-for='el of filtered'
                         :product='el'
-                        :img="imgProduct"
+                        :img="imgCatalog"
                     ></ProductItem>
                 </div>`
 };

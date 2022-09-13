@@ -1,13 +1,13 @@
 import { Cart } from "./CartComp.js";
 import { Products } from "./ProductComp.js";
-import { Filter } from "./FilterComp.js";
+import { Search } from "./FilterComp.js";
 import { Error } from "./ErrorComp.js";
 
 const App = {
     components: {
         Cart,
         Products,
-        Filter,
+        Search,
         Error,
     },
     data() {

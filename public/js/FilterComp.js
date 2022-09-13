@@ -1,4 +1,4 @@
-export const Filter = {
+export const Search = {
     data() {
         return {
             userSearch: ''

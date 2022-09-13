@@ -1,7 +1,7 @@
 import { CartItem } from "./CartItem.js";
 
 export const Cart = {
-    inject: ['API', 'getJson', 'putJson', 'postJson', 'deleteJson'],
+    inject: ['API', 'getJson', 'putJson', 'postJson'],
     components: {
         CartItem,
     },
@@ -58,12 +58,12 @@ export const Cart = {
     },
     template:  `
             <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
-                <div class='cart-block' v-show='facts'>
+                <div class='cart-block' v-show='showCart'>
                     <p v-if="!cartItems.length">No products</p>
                     <CartItem v-for='el of cartItems' 
                         :cart-item='el'
                         :img="imgCart"
-                        :facts="showCart"
+                        
                         @remove="remove"
                     ></CartItem>
                 </div>`,
