@@ -1,11 +1,4 @@
-Vue.component('products', {
-    props: ['products'],
-    template:  `<div class='products'>
-                    <product v-for='el of products' :product='el'></product>
-                </div>`
-});
-
-Vue.component('product', {
+export const ProductItem = {
     props: ['product', 'img'],
     template: `<div class='product-item'>
                     <img :src='img' alt='photo'>
@@ -15,4 +8,4 @@ Vue.component('product', {
                         <button class="buy-btn" @click="$parent.$emit('add-product', product)">Купить</button>
                     </div>
                 </div>`
-})
+};

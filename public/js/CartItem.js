@@ -1,16 +1,9 @@
-Vue.component('cart', {
-    props: ['cartItems', 'facts'],
-    template:  `<div class='cart-block' v-show='facts'>
-                    <p v-if="!cartItems.length">No products</p>
-                    <cart-item v-for='el of cartItems' :cart-item='el'></cart-item>
-                </div>`,
-});
-
-Vue.component('cart-item', {
+export const CartItem =  {
     props: ['img', 'cartItem'],
+    emits: ['remove'],
     template:  `<div class='cart-item'>
                     <div class="product-bio">
-                        <img :src="img" alt="photo">
+                        <img :src="img" alt="cartItem.product_name">
                         <div class="product-desc">
                             <div class="product-title">{{ cartItem.product_name }}</div>
                             <div class="product-quantity">Quantity: {{ cartItem.quantity }}</div>
@@ -22,4 +15,4 @@ Vue.component('cart-item', {
                         <button class="del-btn" @click="$parent.$emit('remove', cartItem)">&times;</button>
                     </div>
                 </div>`,
-})
+};
