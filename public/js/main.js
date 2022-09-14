@@ -21,7 +21,8 @@ const App = {
             API: this.API,
             getJson: this.getJson,
             putJson: this.putJson,
-           postJson: this.postJson,
+            postJson: this.postJson,
+            deleteJson: this.deleteJson,
         }
     },
     methods: {
@@ -51,7 +52,17 @@ const App = {
             })
                 .then(result => result.json())
                 .catch(error => this.$refs.error.setError(error))
-        }
+        },
+        deleteJson(url) {
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(result => result.json())
+                .catch(error => this.$refs.error.setError(error));
+        },
     },
 };
 

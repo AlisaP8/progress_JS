@@ -1,7 +1,7 @@
 import { CartItem } from "./CartItem.js";
 
 export const Cart = {
-    inject: ['API', 'getJson', 'putJson', 'postJson'],
+    inject: ['API', 'getJson', 'putJson', 'postJson', 'deleteJson'],
     components: {
         CartItem,
     },
@@ -26,7 +26,7 @@ export const Cart = {
                 return
             }
 
-            const prod = Object.assign({quantity: 1}, product);
+            const prod = Object.assign({ quantity: 1 }, product);
 
             this.postJson(`/api/cart`, prod)
                 .then(data => {
@@ -35,17 +35,22 @@ export const Cart = {
                     }
                 });
         },
-        remove(product){
-            this.getJson(`${this.API}/deleteFromBasket.json`)
-                .then(data => {
-                    if(data.result){
-                        if(product.quantity > 1){
+        remove(product) {
+            if (product.quantity > 1) {
+                this.putJson(`/api/cart/${product.id_product}`, { quantity: -1 })
+                    .then(data => {
+                        if (data.result) {
                             product.quantity--
-                        } else {
-                            this.cartItems.splice(this.cartItems.indexOf(product), 1)
                         }
-                    }
-                })
+                    });
+            } else {
+                this.deleteJson(`/api/cart/${product.id_product}`)
+                    .then(data => {
+                        if (data.result) {
+                            this.cartItems.splice(this.cartItems.indexOf(product), 1);
+                        }
+                    })
+            }
         },
     },
     mounted() {
@@ -56,7 +61,7 @@ export const Cart = {
                 }
             });
     },
-    template:  `
+    template: `
             <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
                 <div class='cart-block' v-show='showCart'>
                     <p v-if="!cartItems.length">No products</p>
